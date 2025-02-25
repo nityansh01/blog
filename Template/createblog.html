@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title> Create blog </title>
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'Css/createblog.css'%}">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="header container ">
+        <div class="row">
+
+            <div class="col-md-3  d-flex justify-content-center flex-wrap">
+                <div class="d-flex py-3 ">  <img src="{% static 'Images/logo.jpg' %}" class="img" alt=""></div>
+            </div>
+            <div class="col-md-8 d-flex flex-column align-items-center justify-content-center flex-wrap ">
+                <div class=" d-flex  align-items-center mx-5 "><div class="h4">python blog</div></div>
+                <div class="d-flex  align-items-center  py-0">
+                    <div class="">
+                        <ul>
+                            {% for user in user_info%}
+                            <li style="color: #f0f068;">welcome,</li>
+                            <li style="color: #f4f403; font-weight: bolder;">{{user.name}},</li>
+                            <li><a href="{% url 'dashbord' %}" class="anchor border-bottom">DashBord / </a></li>
+                            <li><a href="{% url 'signout'%}" class="anchor border-bottom">LogOut </a></li>
+                            {%endfor%}
+                        </ul>
+                        
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- add blog heading -->
+ 
+<div class="container z-3  pt-3 pb-5">
+    <div class="row d-flex   justify-content-center   rounded-3">
+        <div class="col-md-8 position-absolute ">
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-{{message.tags}} alert-dismissible shadow fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div> 
+            {% endfor %}
+        </div>
+    </div>
+ </div>
+
+
+    <div class="container pt-2 ">
+        <div class="row">
+            <div class="col-md-12 d-flex py-3">
+            <div class="col-md-8">
+               <div class=""> <h3 class=".fs-1">Add Blog</h3></div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex justify-content-end">
+                <a href="{% url 'add_category' %}"><button action="" class="add_category" data-bs-toggle="modal" data-bs-target="mymodal"><i class="fa-solid fa-plus"></i>add category</button></a>
+
+
+                <!-- add categore modal -->
+                      <div class="modal" id="mymodal">
+                        <div class="modal-dialog">
+                            <div class="modal-content"></div>
+                        </div>
+                      </div>
+
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- blog title -->
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+                <div class="container pt-3">
+                    <div class="row border-bottom">
+                        <div class="col-md-2">
+
+
+                            <div class="py-3"><label for="Categorys_blog" class="content_heading">Category </label ></div>
+                        </div>
+                        <div class="col-md-8">
+                          
+                        
+                            <select name="blog_category" style="width: 100%; height: 40px;" >
+                                {% for Categorys in category %}  
+                                
+                                 <option name="blog_category">{{Categorys.name}}</option>
+                                 {%endfor%}
+                             </select>
+                               
+                        </div>
+                       
+                    </div>
+                    
+                </div> 
+
+            <div class="container pt-3">
+                <div class="row border-bottom">
+                    <div class="col-md-2">
+
+            
+                        <div class="py-3"><label class="content_heading">Blog Title </label ></div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="py-3"> <input type="text" name="blogtitle" class="form-control" ></div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <!--  blog content-->
+            <div class="container py-3">
+                <div class="row border-bottom">
+                    <div class="col-md-2">
+
+            
+                        <div class=""><label for="content" class="content_heading">Blog Content </label ></div>
+                    </div>
+                    <div class="col-md-10">
+                        <div> 
+                            <textarea name="Content"  id="editor" rows="15" cols="10"></textarea>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <!-- blog image -->
+            <div class="container pt-3">
+                <div class="row border-bottom my-3">
+                    <div class="col-md-2">
+
+            
+                        <div class=""><label class="content_heading">Content Image </label ></div>
+                    </div>
+                    <div class="col-md-10">
+                        <div>
+                            <input  type="file" name="image" style="height: 3.3rem;"     class="form-control" placeholder="">
+                            </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <!-- is Draft  -->
+               <div class="container">
+                <div class="row border-bottom">
+                  <div class="col-md-4 py-3">
+                    <input type="checkbox" name="checkbox" value="true" ><label for="">Is draft</label>
+                    </div>
+
+                </div>
+               </div>
+            <!-- end draft -->
+            <div class="container py-5">
+                <div class="row col-md-12 bottom_content border"  >
+                    <div class="col-md-5">
+                        <div class="d-flex justify-content-around py-2 ">
+                        
+                            <input class="submit add_category px-4" type="submit"  value="Create ">
+                            
+                        
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+ </form>
+</div>
+   
+  <script>
+    CKEDITOR.replace('editor');
+</script>
+
+  
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

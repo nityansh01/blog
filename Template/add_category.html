@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title> Add_category </title>
+    <style>
+        *{
+            padding: 0px;
+            margin:0px;
+        }
+        .header{
+           background-color:#3a8ab2;
+        
+        }
+        .img{
+            width: 100px;
+            height: 100px;
+        }
+        .h4{
+            color: #f5dd5d;
+            text-transform: capitalize;
+        }
+        ul,li{
+         display: inline-block;
+         text-transform: capitalize;
+        }
+        .anchor{
+          text-decoration: none;
+          color: #fff;
+        }
+        .anchor:hover{
+            color:wheat;
+            text-decoration: none;
+            list-style-type: none;
+        }
+        h3{ 
+            text-transform: capitalize;
+        }
+        .content_heading{
+            color: rgb(52, 52, 52);
+        }
+        .btns{
+            background-color: #0b6b9b;
+            color: white;
+            width:100% ;
+            margin-left: 200px;
+            padding: 10px;
+            font-size: 20px;
+
+        }
+        .btns:hover{
+            background-color: #073d58;
+            
+        }
+       
+        </style>
+    
+</head>
+<body>
+    
+<div class="container">
+    <div class="header container ">
+        <div class="row">
+
+            <div class="col-md-3  d-flex justify-content-center flex-wrap">
+                <div class="d-flex py-3 ">  <img src="{% static 'Images/logo.jpg' %}" class="img" alt=""></div>
+            </div>
+            <div class="col-md-8 d-flex flex-column align-items-center justify-content-center flex-wrap ">
+                <div class=" d-flex  align-items-center mx-5 "><div class="h4">python blog</div></div>
+                <div class="d-flex  align-items-center  py-0">
+                    <div class="">
+                        {% for i in context%}
+                        <ul>
+                            <li style="color: #f0f068;">welcome,</li>
+                            <li style="color: #f4f403; font-weight: bolder;">{{i.user.username}},</li>
+                            <li><a href=" {% url 'dashbord' %}" class="anchor border-bottom">DashBord / </a></li>
+                            <li><a href="{% url 'signout'%}" class="anchor border-bottom">LogOut </a></li>
+                        </ul>
+                        {%endfor%}
+                        
+                    </div>  
+                 
+                </div>
+            </div>
+            
+        </div>
+        </div>
+              
+</div>
+<div class="container z-3  pt-4">
+    <div class="row d-flex   justify-content-center   rounded-3">
+        <div class="col-md-8 position-absolute ">
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-{{message.tags}} alert-dismissible shadow fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div> 
+            {% endfor %}
+        </div>
+    </div>
+ </div>
+
+
+            <div class="container pt-5 ">
+                
+                <div class="row border-bottom">
+                     
+                    <div class="col-md-2">
+
+                    <form action="" method="POST">
+                      {% csrf_token %}
+                                <div class="py-3"><label class="content_heading">Add_category </label ></div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="py-3"> <input type="text" name="add_category" class="form-control" placeholder="add category" ></div>
+                                
+                            </div>
+
+                
+                            </div>
+    
+                           </div>
+
+                      <div class="container py-5 ">
+                        <div class="row border-bottom">
+                            <div class="">
+                                <input type="submit" value="Create" class=" btns">
+                            </div>
+
+                        </div>
+                      </div>
+                    </form>
+</div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>

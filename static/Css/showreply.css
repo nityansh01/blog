@@ -1,0 +1,30 @@
+#reply_else_area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#reply_else_area h2{
+    text-transform: capitalize;
+}
+.delete_edit_container{
+    display: flex;
+    justify-content: end;
+    gap: 30px;
+}   
+#edit a{
+    text-decoration: none;
+    color: rgb(10, 10, 190);
+    
+}
+#edit a:hover{
+    text-decoration: underline;
+    color: rgb(7, 7, 101);
+}
+#delete a{
+    text-decoration: none;
+    color: rgb(223, 58, 58);
+}
+#delete a:hover{
+    text-decoration:underline ;
+    color: rgb(174, 10, 10);
+}

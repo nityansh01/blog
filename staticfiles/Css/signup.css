@@ -1,0 +1,35 @@
+
+body{
+    font-family: 'Poppins';font-size: 16px;
+   }
+        .gradient-custom {
+        
+        background: #8f0505;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgb(103, 2, 15));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to bottom right, #2c3e50, #4ca1af)
+        }
+
+       .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+        box-shadow: 10px 5px 5px white;
+        }
+        .card-registration .select-arrow {
+        top: 13px;
+        }
+        label{
+          text-transform: capitalize;
+          margin-left: 12px;
+          margin-left: 15px; 
+          margin-top: -12px; 
+          position: absolute; 
+          background-color: white; 
+          border: 2px solid white
+        }
+       

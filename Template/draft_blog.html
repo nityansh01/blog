@@ -1,0 +1,186 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Your Draft Blog </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+      <link rel="stylesheet" href="{% static 'Css/showblog.css'%}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="{% static 'Css/draftblog.css' %}">
+    </head>
+   <style>
+    .post_btn a button{
+    background-color: #3a8ab2;
+    color:white;
+    border-radius: 4px;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
+
+    }
+    .post_btn a button:hover{
+        background-color: #245d7a;
+        transform: scaleX(1.1);
+        transition: 1s;
+    }
+ 
+   </style>
+
+  <body>
+
+    <div class="fluid-container ">
+    <nav class=" navbar navbar-expand-md navbar-light border-bottom border-top  my-auto" id="nav_color"  >
+      <a class="navbar-brand mx-2"> <img src="{% static 'Images/logo.jpg' %}" width="70px" height="70px" alt="" class="mr-3">
+        My Python Blog </a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#div">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="div">
+          <ul class="navbar-nav my-auto mx-auto ">
+            <li class="nav-item m-3"><a href="" class="nav-link">Home</a></li>
+            <li class="nav-item m-3"><a href="" class="nav-link">aboutUs</a></li>
+            <li class="nav-item m-3">
+              <form action=""   id="form" class="d-flex my-auto"  >
+                <input type="search" class="form-control mr-sm-2 m-auto " placeholder="Search  Category">
+                <button class="btn btn-outline-success mx-2  my-sm-0" type="Search">Search</button>     
+              </form>
+            </li>
+{% for user in user_info%} 
+                  {% if user.user_image%}                
+                    <li class="nav-item m-3 d-flex" style="position: relative;"> <a href="{% url 'userprofile'  %}" class="nav-link "><div class="d-flex "> <div id="userimages" class="d-flex"> <img src="{{user.user_image.url}}" id="dp"  alt="" class="dp"></div> <div> {{user.name}}  </div> </div></a></li>
+                  {%else%}
+                      <li class="nav-item m-3 d-flex " style="position: relative;"> <a href="{% url 'userprofile' %}" class="nav-link "> <div class="d-flex ">  <div id="userimages" class="d-flex align-items-start"> <img src="{% static 'Images/images.jpg'%}" id="dp"  alt="" class="dp"></div> <div class="">{{user.name}}  </div></div></a></li>
+                  {%endif%}  
+            
+            <li class="nav-item m-3"><a href="{% url 'signout'%}" class="nav-link">logOut</a></li>
+            </ul>
+        </div>     
+    </nav>
+  </div>
+ <div class="container py-4">
+  <div class="row">
+    <div class=" d-flex justify-content-end position-relative"><a class="btn_dashbord_a" href="{% url 'userprofile'%}"><button class="btn_dashbord" >Back</button></a></div>
+  </div>
+ </div>
+
+  {%for viewblog in draft_blog%}
+      {%if viewblog.user_profile.user.id == user.user.id%}
+            {% if viewblog.blog_draft %} 
+                    <div class="container my-3">
+                    <div class="row  row_content">
+                    <!-- start edit and delete opration -->
+                
+                    
+                        <div class="d-flex justify-content-end">
+                            <div class="edit_btn mx-2"><a href="{% url 'editblog' viewblog.id %}"><abbr title="edit"><i class="fa-regular fa-pen-to-square"></i></abbr></a></div>
+                            <div class="delete_btn mx-2"><a href="{% url 'deleteblog' viewblog.id %}"><abbr title="delete"><i class="fa-solid fa-trash"></i></a></abbr></div>
+                            <div class="mx-2 d-flex justify-content-end  "> <span><i class="fa-regular fa-heart"></i></span></div>  
+                            <div class="post_btn mx-2 "><a href="{% url 'draftpost' viewblog.id %}"><button>Post</button></a></div>
+
+                        </div>
+                        
+                        
+                        
+                            
+                    
+                        <!--end edit and delete oprations -->
+                        <!-- start left content -->
+                        <div class="col-md-4">
+                        
+                            <div class="content_img">  <img src="{{viewblog.blog_img.url}}" class="img" alt=""></div>
+                        
+                        </div>
+                    
+                        <!-- start right content -->
+                        <div class="col-md-8 rignt_container  d-flex flex-column align-items-center">
+                            <div class="content_text ">
+                            <div class="category_container">
+                                <div class="category_heading">
+                                <h4 >Category  :- </h4  >
+                                </div>
+                            <div class="category_content">{{viewblog.blog_Category}}</div>
+                            </div>
+
+                            </div>
+
+                            <div class="title_container ">
+                            <div> <h4> Title :-</h4></div>
+                            <div class="title_content">{{viewblog.blog_title}}</div>
+
+                            </div>
+                            <div class="container_content">
+                            <div class="content_heading"><h4>content :- </h4></div>
+                            <div class="content"><p>{{viewblog.blog_contant}}</p></div>
+                            </div>
+                            
+                                
+                        </div>
+                        <div class="user d-flex justify-content-end">
+                        <div class="user_container">
+                            {%if viewblog.user_profile.user_image%}
+                            <div class="username"> <img src="{{viewblog.user_profile.user_image.url}}" id="dp"  alt="" class="dp"> {{viewblog.user_profile.name}}.</div>
+                            {%else%}
+                            <div class="username"> <img src="{% static 'Images/images.jpg'%}" id="dp"  alt="" class="dp">{{viewblog.user_profile.name}}.</div>
+                            {%endif%}
+                        </div>
+                        <div class="update_container px-3 d-flex align-items-center">
+                            {% if viewblog.blog_last_edit%}
+                            <span>{{viewblog.blog_last_edit.time}}</span>
+                            <span>{{viewblog.blog_last_edit.date}}</span>
+                            {%else%}
+                            <span class="px-2">{{viewblog.blog_create_on.time}}</span>
+                            <span class="px-3">{{viewblog.blog_create_on.date}}</span>
+                            {%endif%}
+                                
+                        </div>
+                    
+                    </div>
+
+                  </div>
+               </div>
+            {%else%}  
+                    <div class="container">
+                      <div class="row">
+                          <div class="d-flex justify-content-center align-items-center"> 
+                              <h3>
+                                  Opps! No Draft Avalable 
+                              </h3>
+                          </div>
+                      </div>
+                  </div>
+            {%endif%}  
+      {%else%}
+          <div class="container">
+              <div class="row">
+                  <div class="d-flex justify-content-center align-items-center"> 
+                      <h3>
+                          Opps! No Draft Avalable 
+                      </h3>
+                  </div>
+              </div>
+          </div>
+      {%endif%}
+   {% empty %}
+            <div class="container">
+              <div class="row">
+                  <div class="d-flex justify-content-center align-items-center"> 
+                      <h3>
+                          Opps! No Draft Avalable 
+                      </h3>
+                  </div>
+              </div>
+           </div>
+    
+  {%endfor%}
+{%endfor%}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+  </body>
+</html>

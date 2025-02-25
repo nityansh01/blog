@@ -1,0 +1,144 @@
+
+*{
+  padding: 0px;
+  margin:0px;
+}
+.header{
+ background-color:#3a8ab2;
+
+}
+
+.img{
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+
+  
+}
+.imgs{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+  
+}
+.h4{
+  color: #f5dd5d;
+  text-transform: capitalize;
+}
+ul,li{
+display: inline-block;
+text-transform: capitalize;
+}
+.anchor{
+text-decoration: none;
+color: #fff;
+}
+.anchor:hover{
+  color:rgb(225, 67, 23);
+  transform: translate(10px);
+  text-decoration: underline;
+}
+.anchors{
+  text-decoration: none;
+  color: #fff;
+}
+.anchors:hover{
+  color: #0b3950;
+  transform: translate(10px);
+  text-decoration: underline;
+}
+h3{ 
+  text-transform: capitalize;
+}
+.content_heading{
+  color: rgb(52, 52, 52);
+}
+.container{
+
+margin-top: 30px;
+
+}
+label{
+text-transform: capitalize;
+margin-left: 12px;
+margin-left: 15px; 
+margin-top: -12px; 
+position: absolute; 
+background-color: white; 
+border: 2px solid white
+}
+input{
+border-color: red;
+}
+img{
+width: 200px;
+height: 200px;
+border:1px solid black;
+border-radius:50%;
+
+}
+    
+.left_box{
+
+
+box-shadow: 0px 0px 4px  black;
+
+
+}
+h4{
+text-transform: capitalize;
+}
+a{
+text-decoration: none;
+}
+.right_box{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.div{
+
+
+display: flex;
+align-items: center;
+justify-content: start;
+height: 3.3rem;
+text-transform: capitalize;
+font-weight: bolder;
+font-size: larger;
+box-shadow:0px 0px 1px  gray;
+
+cursor:zoom-in;
+}
+span{
+margin-left: 40px;
+}
+#change_password abbr {
+  cursor: pointer;
+  color:rebeccapurple ;
+}
+
+#col-8:hover{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+border-radius: 10px 10px 10px 10px ;
+transform: skewX(1);
+transition: 2s;
+}
+#editprofile{
+  color: black;
+ 
+
+}
+#editprofile:hover  a{
+      color:red;
+
+}
+#ChangePassword{
+  text-decoration: none;
+}
+#ChangePassword:hover{
+  color: rgb(34, 253, 34);
+} 
+
+
+

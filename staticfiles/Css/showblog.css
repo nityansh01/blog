@@ -1,0 +1,265 @@
+body {
+    font-family: 'Poppins';
+    font-size: 16px;
+    
+  }
+  .dp{
+    height:40px;
+    width:40px ;
+    
+    border-radius: 50%;
+  
+    
+  }
+  .row_content{
+    
+    padding: 10px;
+
+  }
+  #userimages{
+    display: flex;
+  }
+  .nav-img{
+     display: inline-block;
+  
+  }
+  
+  .nav{
+    position: relative;
+  }
+  #nav_color{
+  background-color: #e3f2fd;
+  }
+  
+  .nav-link{
+    text-transform: capitalize;
+  }
+  
+  .content_img{
+    display: flex;
+   width: 100%;
+   height: 100%;
+    justify-content: center;
+    align-items: center;
+   
+  
+  }
+  .img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  
+    /* border:1px solid #ddd;
+    padding: 7px; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+  }
+  .content_text{
+    display: flex;
+    direction:  column;
+    justify-content: center;
+    align-items: center;
+  }
+  .category_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom:  1px  solid #ddd;
+  }
+  .category_content{
+    text-transform: capitalize;
+    font-size: 20px;
+    
+  }
+  .title_container{
+   display:flex;
+   align-items: center;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  .title_content{
+    text-transform: capitalize;
+    font-size: 20px;
+   
+  }
+  .container_content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .content{
+    font-size: 20px;
+   
+  }
+  .btn_dashbord{
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+   
+  }
+  .btn_dashbord_a{
+     text-decoration: none;
+     color: black;
+
+  }
+  .btn_dashbord:hover{
+    border-color:green;
+    background-color:rgb(46, 163, 46);
+    
+  }
+  .btn_dashbord:hover a{
+    color:white;
+  }
+  #dp{
+    height:40px;
+    width:40px ;
+    
+    border-radius: 50%;
+  
+  }
+  .username{
+    text-transform: capitalize;
+    font-weight: bolder;
+  }
+  .edit_btn a abbr{
+    color: green;
+    cursor: pointer;
+  }
+  .edit_btn a:hover  abbr {
+    color: rgb(12, 12, 94);
+  }
+ 
+
+  .delete_btn a abbr{
+    color: rgb(224, 106, 124);
+    cursor: pointer;
+  }
+  .delete_btn a:hover abbr{
+    color:red;
+  }
+
+
+
+  .comment_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+   
+  
+
+}
+.leave_comment_title{
+
+margin-top: 30px;
+font-weight:bold ;
+font-size: 18px;
+}  
+.post{
+    font-size: 20px;
+    background-color: rgb(141, 147, 153);
+    width: 100px;
+    border: none;
+
+    
+}
+.post:hover{
+    background-color: rgb(88, 86, 86);
+    color: white;
+    border:none;
+    transition: 2s;
+}
+
+
+
+
+
+ 
+.show_comment_container{
+  padding-block-start: 0;
+  border-bottom:  1px solid rgb(241, 238, 238);
+
+}
+.in_top_user_information{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top:20px ;
+}
+.user_img{
+  width:  40px;
+  height: 40px;
+  
+  border-radius: 50%;
+  
+}
+.user_img img{
+  width:  40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.user_name_and_time{
+  display: flex;
+  flex-direction: column;
+  align-items: 0;
+  justify-content: center;
+  margin-left:5px;  
+}
+.user_name_bycomment h3{
+    
+      font-size: 17px;
+      
+}
+.user_name_bycomment h3 a{
+text-decoration: none;
+color: rgb(5, 5, 5); 
+}
+.user_name_bycomment h3 a:hover{
+text-decoration: underline;
+color: rgb(52, 51, 51);
+}
+
+.user_time_bycomment h3{
+  font-size: 14px;
+}
+.comment_area{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  
+}
+.text{
+text-transform:capitalize ;
+}
+.comment_area p{
+  color: black;
+  font-size: 18px;
+  font-family: sans-serif,Arial, Helvetica;
+}
+.reply_container{
+    display: flex;
+    gap:50px;
+    justify-content: start;
+    margin-left: 30px;
+}
+.reply_container_reply a{
+text-decoration: none;
+}
+.reply_container_reply a:hover{
+ text-decoration: underline;
+}
+
+.footer h3{
+  font-size: 20px;
+}
+   

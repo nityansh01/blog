@@ -1,0 +1,154 @@
+body {
+    font-family: 'Poppins';
+    font-size: 16px;
+    
+  }
+  .dp{
+    height:40px;
+    width:40px ;
+    
+    border-radius: 50%;
+  
+    
+  }
+  .row_content{
+    border: 1px solid gray;
+   
+  }
+  #userimages{
+    display: flex;
+  }
+  .nav-img{
+     display: inline-block;
+  
+  }
+  
+  .nav{
+    position: relative;
+  }
+  #nav_color{
+  background-color: #e3f2fd;
+  }
+  
+  .nav-link{
+    text-transform: capitalize;
+  }
+  .row_content{
+    height: 400px;
+  }
+  .img{
+    width: 80%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+  
+    /* border:1px solid #ddd;
+    padding: 7px; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+  }
+  .content_text{
+    display: flex;
+    direction:  column;
+    justify-content: center;
+    align-items: center;
+  }
+  .category_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom:  1px  solid #ddd;
+  }
+  .category_content{
+    text-transform: capitalize;
+    font-size: 20px;
+    
+  }
+  .title_container{
+   display:flex;
+   align-items: center;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  .title_content{
+    text-transform: capitalize;
+    font-size: 20px;
+   
+  }
+  .container_content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .content{
+    font-size: 20px;
+   
+  }
+  .btn_dashbord{
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+   
+  }
+  .btn_dashbord_a{
+     text-decoration: none;
+     color: black;
+
+  }
+  .btn_dashbord:hover{
+    border-color:green;
+    background-color:rgb(46, 163, 46);
+    
+  }
+  .btn_dashbord:hover a{
+    color:white;
+  }
+  #dp{
+    height:40px;
+    width:40px ;
+    
+    border-radius: 50%;
+  
+  }
+  .username{
+    text-transform: capitalize;
+    font-weight: bolder;
+  }
+  .edit_btn a abbr{
+    color: green;
+    cursor: pointer;
+  }
+  .edit_btn a:hover  abbr {
+    color: rgb(12, 12, 94);
+  }
+ 
+
+  .delete_btn a abbr{
+    color: rgb(224, 106, 124);
+    cursor: pointer;
+  }
+  .delete_btn a:hover abbr{
+    color:red;
+  }
+  .delete_btn a button {
+    background-color: #3a8ab2;
+    color:white;
+    border-radius: 4px;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.post_btn a button{
+    background-color: #3a8ab2;
+    color:white;
+    border-radius: 4px;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
+
+}
+ 

@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+   
+   <title>Edit UserProfile</title>
+
+    <link rel="stylesheet" href="{% static 'Css/editprofile.css' %}">
+    <script src="{% static 'Js/profil_validation.js'%}"></script>
+ 
+</head>
+<body>
+  <div class="header container ">
+    <div class="row">
+{%for data in user_info %} 
+        <div class="col-md-3  d-flex justify-content-center flex-wrap">
+            <div class="d-flex py-3 ">  <img src="{% static 'Images/logo.jpg' %}" class="img" alt=""></div>
+        </div>
+        <div class="col-md-8 d-flex flex-column align-items-center justify-content-center flex-wrap ">
+            <div class=" d-flex  align-items-center mx-5 "><div class="h4">python blog</div></div>
+            <div class="d-flex  align-items-center  py-0">
+                <div class="">
+                    <ul>
+                        
+                        <li style="color: #f0f068;">welcome,</li>
+                        <li style="color: #f4f403; font-weight: bolder;">{{data.name}},</li>
+                        <li><a href="{% url 'dashbord' %}" class="anchor ">DashBord / </a></li>
+                        
+                        <li><a href="{% url 'userprofile'%}" class="anchor">Back </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+   
+</div>
+
+
+<div class="container py-4 h-100">
+     
+        <div class=" col-md-12 z-3  rounded-3">
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-{{message.tags}} alert-dismissible shadow fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div> 
+            {% endfor %}
+        </div>
+        </div>
+
+
+<!-- body -->
+  <div class="container display-relative">
+    
+    <div class="row">
+  
+  <form action="" method="POST"   enctype="multipart/form-data">
+     <div id="body_container" class="py-4">     
+      {%csrf_token%}
+        <div class="col-sm-12 ">
+            <div class="row">
+                <div class="col-md-6 mb-4 ">
+ 
+                  <!--  -->
+                  <div class="form-group form-outline">
+                    <label for="input1">first name</label>
+                    <input type="text"id="FIRSTNAME" value="{{data.user.first_name}}" name="firstname" style=" height: 3.3rem;"class="form-control" placeholder="First Name">
+                 </div>
+                 
+                <!--   -->
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div data-mdb-input-init class="form-outline form-group">
+                    <div >
+                      <label for="input1">last name </label>
+                      <input type="text" id="LASTNAME" value="{{data.user.last_name}}"  name="lastname" style="height:3.3rem;"   class="form-control" placeholder="Last Name">
+                   </div>
+                  </div>
+
+                </div>
+              </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+              <div data-mdb-input-init class="form-outline form-group">
+                <div >
+                  <label for="input1">username </label>
+                  <input type="text"id="USERNAME" value="{{data.user.username}}"  name="username" style=" height: 3.3rem;"   class="form-control" placeholder="Username">
+               </div>
+              </div>
+
+             
+
+            </div>
+            <div class="col-md-6 mb-4">
+
+              <div data-mdb-input-init class="form-outline form-group">
+                <div >
+                  <label for="input1">email </label>
+                  <input type="email"id="EMAIL" value="{{data.user.email}}" name="email" style=" height: 3.3rem;"   class="form-control" placeholder="Email">
+               </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4 pb-2">
+
+              <div data-mdb-input-init class="form-outline form-group">
+                <div >
+                  <label for="input1">phone number </label>
+                  <input type="tel"  maxlength="10" value="{{data.phone_number}}" minlength="10"  id="PHONENUMBER"  name="phonenumber" style=" height: 3.3rem;"   class="form-control" placeholder="Phone Number">
+               </div>
+              </div>
+
+            </div>
+            <div class="col-md-6 mb-4 pb-2">
+
+              <div data-mdb-input-init class="form-outline form-group">
+                <div >
+                  <label for="input1">age </label>
+                  <input type="text"id="AGE" value="{{data.age}}"  name="age" style=" height: 3.3rem;" maxlength="2" minlength="2"  class="form-control" placeholder="age">
+               </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4 pb-2">
+              <div data-mdb-input-init class="form-outline form-group">
+                <div >
+                 <label for="input1">gender </label>
+                  <select  class="w-100 "id="GENDER"  name="gender" style="height: 3.3rem;">
+                        <option value="">__Select__</option>
+                        <option value="Male" {% if data.gender == "Male" %}selected{% endif %}>Male</option>
+                        <option value="Female" {% if data.gender == "Female" %}selected{% endif %}>Female</option>
+                        <option value="Other" {% if data.gender == "Other" %}selected{% endif %}>Other</option>
+                      </select>
+               </div>
+              </div>
+
+            </div>
+            <div class="col-md-6 mb-4 pb-2">
+
+                <div data-mdb-input-init class="form-outline form-group">
+                  <div >
+                    <label for="input1">user Profile </label>
+                    <input type="file" m-2   style="height: 3.3rem;"  name="image"    class="form-control">
+                 </div>
+                </div>
+  
+              </div>
+
+           
+        <!-- right -->
+        <div class="row">
+          <div class="d-flex justify-content-center align-items-center" id="submit_btn">
+            <input type="submit" value="save & change " class="bg-success py-3  " id="submit_btn">
+          </div>
+        </div>
+    </div>
+    </form>
+{%endfor%}
+    </div>
+  </div>
+  
+
+  
+
+ 
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   
+</body>
+</html>

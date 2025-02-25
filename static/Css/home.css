@@ -1,0 +1,21 @@
+body {
+    font-family: 'Poppins';
+    font-size: 16px;
+    
+}
+
+#nav_color{
+  background-color: #e3f2fd;
+}
+
+.nav-link{
+    text-transform: capitalize;
+}
+.carousel-img {
+  height: 350px;
+  object-fit: cover;
+}
+#Category{
+  font-size: 50px;
+  font-weight: bolder;
+}

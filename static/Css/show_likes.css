@@ -1,0 +1,10 @@
+.all_likes_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.all_likes_container div h3{
+    text-transform: capitalize;
+    
+}

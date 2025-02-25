@@ -1,0 +1,109 @@
+body {
+  font-family: 'Poppins';
+  font-size: 16px;
+  
+}
+
+.nav{
+  position: relative;
+}
+#nav_color{
+background-color: #e3f2fd;
+}
+
+.nav-link{
+  text-transform: capitalize;
+}
+.carousel-img {
+height: 350px;
+object-fit: cover;
+
+}
+#Category{
+font-size: 50px;
+font-weight: bolder;
+}
+
+   
+  
+
+.dp{
+  height:40px;
+  width:40px ;
+  
+  border-radius: 50%;
+
+  
+}
+.Write_Blog.a{
+  color:green;
+  font-size: 40px;
+  text-decoration: none;
+}
+.imgs{
+  width: 40px;
+  height: 40px;
+  /* border-radius: 50%; */
+}
+
+/* here not working */
+
+
+
+
+
+
+#Write_Blog,a{
+      color:white;
+      font-size: 25px;
+      text-decoration: none;
+    
+  }
+  #Write_Blog{
+    background-color: #096698fa;
+    border:1px solid black;
+    padding: 4px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 4px lightgray;
+    
+  
+  }
+  .a:hover{
+    background-color: #03314afa;
+  }
+  .imgs{  
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .like_btn{
+    color: rgb(220, 20, 20);
+    font-size: 16px; 
+  }
+ 
+  .card-spacing {
+  margin-bottom: 20px; 
+  }        
+ .btn_like{
+   
+    display: flex;
+    align-items: center;
+    color:black;
+   
+
+      }
+  #view_like_account{
+    color:black;
+    font-size: 17px;
+  }
+   .card-spacing{
+    display: flex;
+    gap: 10px;
+   }
+
+   .comment_area{
+     margin-left : 6px ;
+   }
+   .comment_area ,i{
+       color: rgb(239, 12, 12);
+   }
