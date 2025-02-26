@@ -11,12 +11,12 @@
 - 🚀 Fast and responsive UI  
 
 ## Tech Stack
-- **Frontend:** html / css / bootstrap  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB / PostgreSQL  
-- **Authentication:** JWT / Firebase Auth  
+- **Frontend:** html / css / bootstrap / js  
+- **Backend:** python, django  
+- **Database:** mysql/dbsqlite3  
+ 
 
 ## Installation
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/your-username/write-to-my-blog.git
+   git clone https://github.com/nityansh01/write-to-my-blog.git
